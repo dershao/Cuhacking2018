@@ -43,12 +43,16 @@ def pickSubreddit(emotion):
 	return EMOTION_DICTIONARY[emotion]
 
 def getContent(emotion):
-
+	"""
+	Get random content based on specified emotion.
+	"""
 	reddit = getRedditInstance()
 	pickedSub = pickSubreddit(emotion);
 	subreddit = getSubredditInstance(reddit, pickedSub)
 	randomSubmission = getRandomSubmission(subreddit)
 
+	return randomSubmission
+	
 if __name__ == "__main__":
 
 	#testing reddit scraping
