@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from ./eddit/reddit_scrapper import *
-import ./apicall/apicall as apicall
+from Reddit import reddit_scraper
+from apicall import apicall
 
 
 # emotion

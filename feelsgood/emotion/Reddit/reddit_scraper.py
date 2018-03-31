@@ -1,7 +1,7 @@
 import praw
 from random import randint
-from subreddits import *
 import webbrowser
+from . import subreddits
 
 
 def getRedditInstance():
