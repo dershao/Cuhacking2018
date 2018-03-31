@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ./Reddit/reddit_scrapper import *
+from ./eddit/reddit_scrapper import *
 import ./apicall/apicall as apicall
 
 
