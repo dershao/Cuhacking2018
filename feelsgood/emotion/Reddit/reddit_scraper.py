@@ -29,12 +29,15 @@ def getRandomSubmission(subreddit):
 	Get random subreddit submission from specified subreddit instance.
 
 	"""
-	index = randint(0, 100)
 	topMonthlyPosts = subreddit.top('month')
+	index = randint(0, 99)
 
-	randomSubmission = list(topMonthlyPosts)[index].url
+	i = 0
+	for post in topMonthlyPosts:
+		if (i == index):
+			return post.url
 
-	return randomSubmission
+		i = i + 1
 
 def pickSubreddit(emotion):
 	"""
@@ -48,8 +51,8 @@ def getContent(emotion):
 	"""
 	reddit = getRedditInstance()
 	pickedSub = pickSubreddit(emotion);
-	subreddit = getSubredditInstance(reddit, pickedSub)
-	randomSubmission = getRandomSubmission(subreddit)
+	#subreddit = getSubredditInstance(reddit, pickedSub)
+	randomSubmission = getRandomSubmission(getSubredditInstance(reddit, pickedSub))
 
 	return randomSubmission
 
