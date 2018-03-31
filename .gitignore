@@ -108,3 +108,6 @@ praw.ini
 
 # api_key
 apikey.py
+
+#global keys
+keys.py

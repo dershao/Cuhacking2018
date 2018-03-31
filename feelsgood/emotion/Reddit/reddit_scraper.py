@@ -2,6 +2,7 @@ import praw
 from random import randint
 import webbrowser
 from . import subreddits
+from . import keys
 
 
 def getRedditInstance():
@@ -10,8 +11,7 @@ def getRedditInstance():
 
 	"""
 
-	reddit = praw.Reddit('bot1')
-
+	reddit = praw.Reddit(client_id=keys.praw["client_id"], client_secret=keys.praw["client_secret"], user_agent=keys.praw["user_agent"])
 	return reddit
 
 def getSubredditInstance(reddit, subreddit):
@@ -40,7 +40,7 @@ def pickSubreddit(emotion):
 	"""
 	Pick a subreddit based on specified emotion.
 	"""
-	return EMOTION_DICTIONARY[emotion]
+	return subreddits.EMOTION_DICTIONARY[emotion]
 
 def getContent(emotion):
 	"""
