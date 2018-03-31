@@ -1,3 +1,5 @@
 from django.shortcuts import render
+import ./apicall/apicall as apicall
 
-# Create your views here.
+# emotion
+def emotion(request):
