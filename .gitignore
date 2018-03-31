@@ -105,3 +105,6 @@ venv.bak/
 
 #praw files
 praw.ini
+
+# api_key
+apikey.py
