@@ -1,5 +1,5 @@
 import indicoio
-import apikey
+from . import apikey
 
 # api key
 indicoio.config.api_key = apikey.api_key
