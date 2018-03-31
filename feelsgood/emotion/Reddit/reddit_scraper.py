@@ -30,11 +30,13 @@ def getRandomSubmission(subreddit):
 
 	"""
 	topMonthlyPosts = subreddit.top('month')
-	index = randint(0, 99)
+	index = randint(0, 4)
 
 	i = 0
 	for post in topMonthlyPosts:
+		print(post)
 		if (i == index):
+			print(post, " inside for loop")
 			return post.url
 
 		i = i + 1
@@ -51,8 +53,8 @@ def getContent(emotion):
 	"""
 	reddit = getRedditInstance()
 	pickedSub = pickSubreddit(emotion);
-	#subreddit = getSubredditInstance(reddit, pickedSub)
-	randomSubmission = getRandomSubmission(getSubredditInstance(reddit, pickedSub))
+	subreddit = getSubredditInstance(reddit, pickedSub)
+	randomSubmission = getRandomSubmission(subreddit)
 
 	return randomSubmission
 
