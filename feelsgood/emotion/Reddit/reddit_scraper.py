@@ -6,7 +6,7 @@ from . import subreddits
 
 def getRedditInstance():
 	"""
-	Get the Reddit instance to make API calls. 
+	Get the Reddit instance to make API calls.
 
 	"""
 
@@ -52,7 +52,7 @@ def getContent(emotion):
 	randomSubmission = getRandomSubmission(subreddit)
 
 	return randomSubmission
-	
+
 if __name__ == "__main__":
 
 	#testing reddit scraping
@@ -61,6 +61,3 @@ if __name__ == "__main__":
 	subreddit = getSubredditInstance(reddit, pickedSub)
 	randomSubmission = getRandomSubmission(subreddit)
 	webbrowser.open(randomSubmission)
-
-	
-
