@@ -108,3 +108,6 @@ apikey.py
 
 #global keys
 keys.py
+
+#node modules
+/node_modules
