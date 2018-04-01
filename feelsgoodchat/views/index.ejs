@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FeelsGood</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+  </head>
+
+  <body>
+    <script>
+      $(function() {
+
+        var room = "<%= room %>";
+
+        //random integer id to identify users
+
+        var user_id = Math.ceil(Math.random() * 100000);
+
+        //1. make connection
+        var socket = io();
+
+        var user;
+       
+       //2. when socket is connect, emit join room event to join this client to room
+        socket.on('connect', function() {
+          data = {room : room, user : user_id};
+          socket.emit('join room', data);
+        });
+
+        //Submitting messages
+        $('form').submit(function() {
+          socket.emit('new message', {room: room, msg: $('#m').val()});
+          $('#m').val('');
+          return false;
+        });
+
+        //chat message event from server
+        socket.on('chat message', function(msg) {
+           $('#messages').append("<li>user" + user + " " + msg + "</li>");
+        });
+
+        //4. user has unique id and user has joined room
+        socket.on('join', function(user_id) {
+          //set the user to the id
+          user = user_id;
+          $('#messages').append("<li>user" + user + " has joined the room.</li>");
+        });
+
+      });
+    </script>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+  </body>
+</html>

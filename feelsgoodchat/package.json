@@ -1,0 +1,21 @@
+{
+  "name": "socket-server-test",
+  "version": "1.0.0",
+  "description": "chat room",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "express": "^4.15.2",
+    "mongoose": "^5.0.12",
+    "socket.io": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "6.10.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
