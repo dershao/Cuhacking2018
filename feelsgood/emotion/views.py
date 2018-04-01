@@ -8,4 +8,4 @@ def emotion(request):
     feels = apicall.getEmotion(request.GET.get('image'))
     link = reddit_scraper.getContent(feels.lower())
 
-    return HttpResponse(link)
+    return HttpResponse(feels + ',' + link)
